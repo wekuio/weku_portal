@@ -1,0 +1,337 @@
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+  }
+  html {
+    line-height: 1.4;
+    font-weight: 400;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: #fff;
+    margin: auto;
+    max-width: 1200px;
+  }
+  .weku-flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .weku-flex-item-right {
+    margin-left: auto;
+  }
+  header {
+    padding: 1em 1em 0 1em;
+    background: #f8f0ec;
+  }
+  .weku-spacer {
+    padding: 0 1em;
+    background: #f8f0ec;
+  }
+  .weku-spacer-dot {
+    width: 100%;
+    height: 1px;
+  }
+  .weku-logo {
+    background: #f8f0ec;
+    width: 135px;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    outline: none;
+    text-decoration: none;
+    color: #eb5c03
+  }
+  a:hover, a:active {
+    color: #e85619;
+    text-decoration: underline;
+  }
+  a:visited {
+    color: #70605b;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 .5em 0;
+    color: #4e3626;
+  }
+  p {
+    margin: 0;
+    color: #70605b;
+  }
+  p + p {
+    margin-top: .75em;
+  }
+  div {
+    padding: 1.5em;
+    background: white;
+  }
+  div p {
+    color: #70605b;
+  }
+  main {
+    background: #f8f0ec;
+    padding-bottom: 1.5em;
+  }
+  main section,
+  main aside {
+    padding: 1.5em;
+    padding-bottom: 0;
+  }
+  main article {
+    padding: 1.5em;
+    background: white;
+    border-right: 8px solid #ffbb6a; 
+  }
+  main article p {
+    color: #4e3626;
+    line-height: 1.5;
+  }
+  article + article {
+    margin-top: .75em;
+  }
+  .capsule {
+    margin: auto;
+    margin-bottom: 12px;
+  }
+  .capsule-message {
+    border:2px solid #ff742d;
+    border-radius: 5px;
+  }
+  .capsule-message h2, .capsule-message h3,.capsule-message h4 {
+    color:  #ff742d;
+    margin: 0;
+  } 
+  .weku-side-bg {
+      background-image: url("images/side-bg.png");
+      background-position: 100% 0;
+      background-repeat:no-repeat;
+      background-color:#fff;
+  }
+
+  /* weku button */
+  .weku-button {
+    font-size: 13px;
+    font-family: "Helvetica";
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+	background-color:#ff742d;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+    border-radius:3px;
+	border:1px solid #ff742d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+    padding: 4px 12px;
+    margin: auto 2px;
+    text-decoration:none;
+    text-transform: none;
+}
+.weku-button:visited {
+    color: #ffffff;
+    text-decoration:none;
+    text-transform: none;
+}
+.weku-button:hover {
+    border:1px solid #ff742d;
+    color: #ff742d;
+    background-color:#ffffff;
+    text-decoration:none;
+    text-transform: none;
+}
+.weku-button:active {
+    border:1px solid #ff6633;
+	position:relative;
+    top:1px;
+    text-decoration:none;
+    text-transform: none;
+}
+.weku-hamburger {
+    display: inline-block;
+    vertical-align: middle;
+    width: 25px;
+    height: 21px;
+    cursor: pointer;
+    position: relative;
+    top: 0;
+}
+.weku-hamburger::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #ff742d;
+    box-shadow: 0 8px 0 #ff742d, 0 16px 0 #ff742d;
+    content: "";
+}
+.weku-hamburger:hover {
+    background: #fff;
+}
+.weku-hamburger-svg:hover {
+    background: #ffffff;
+}
+
+.weku-search-icon, .weku-edit-icon, .weku-account-icon {
+    width: 30px;
+    height: 30px;
+    text-indent: -99999px;
+    display: inline-block;
+}
+.weku-search-icon {
+    background: url("images/weku-search-off.svg") no-repeat;
+}
+.weku-search-icon:hover {
+    background: url("images/weku-search-on.svg") no-repeat;
+}
+.weku-edit-icon {
+    background: url("images/weku-edit-off.svg") no-repeat;
+}
+.weku-edit-icon:hover {
+    background: url("images/weku-edit-on.svg") no-repeat;
+}
+.weku-account-icon {
+    background: url("images/weku-account-off.svg") no-repeat;
+}
+.weku-account-icon:hover {
+    background: url("images/weku-account-on.svg") no-repeat;
+}
+
+.subnav {
+    display: flex;
+    background: #f8f0ec;
+    padding: 0.75em 1em 0 1.5em;
+}
+.subnav-container {
+    background: #f8f0ec;
+    padding: 0;
+}
+.subnav-grid {
+    color: #70605b;
+}
+/* grid icon */
+.subnav-grid-two, .subnav-grid-three {
+    width: 26px;
+    height: 20px;
+    text-indent: -99999px;
+    display: inline-block;
+    margin: 0 2px;
+}
+.subnav-grid-two {
+    background: url("images/weku-hamburger-2-off.svg") no-repeat;
+}
+.subnav-grid-two:hover, .weku-two-active {
+    background: url("images/weku-hamburger-2-on.svg") no-repeat;
+}
+.subnav-grid-three {
+    background: url("images/weku-hamburger-3-off.svg") no-repeat;
+}
+.subnav-grid-three:hover, .weku-three-active {
+    background: url("images/weku-hamburger-3-on.svg") no-repeat;
+}
+
+
+.subnav-items {
+    align-items: flex-start;
+    background: #f8f0ec;
+    padding: 0;
+    display: inline-block;
+}
+.subnav-items a {
+    color: #4e3626;
+    padding: 0 6px;
+    position: relative;
+    display: inline-block;
+    padding: 0 6px 6px 6px;
+    text-decoration: none;
+}
+.subnav-items a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 10px);
+    bottom: 2px;
+    transition: all 0.1s ease-out;
+    background: #ff742d;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+}
+.subnav-items a:hover:after {
+    transform: translateX(-50%) scaleX(1);
+}
+.subnav-items .active {
+    position: relative;
+    display: inline-block;
+    padding: 0 6px 6px 6px;
+    text-decoration: none;
+}
+.subnav-items .active:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: calc(100% - 10px);
+    bottom: 2px;
+    transition: all 0.1s ease-out;
+    background: #ff742d;
+    left: 50%;
+    transform: translateX(-50%) scaleX(1);
+}
+.subnav-container .subnav-grid {
+    color: #70605b;
+    padding: 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0.3em 0.3em 0 0.3em;
+}
+.margin-l-10 {
+    margin-left: 10px;
+}
+.margin-r-10 {
+    margin-right: 10px;
+}
+.weku-spacer-menu {
+    width: 20px;
+    height: 1px;
+    display: inline-block;
+}
+.weku-ul {
+    list-style-type: none;
+    margin-left: 0.25rem;
+    color: #4e3626;
+}
+footer {
+    background: #f8f0ec;
+    padding: 1em;
+    text-align: center;
+}
+footer .weku-logo {
+    background: #f8f0ec;
+    text-align: center;
+    display: inline-block;
+}
+footer .weku-copyright {
+    padding: 0.5em;
+    background: #f8f0ec;
+    color: #70605b;
+}
+
+  @media (min-width: 800px) {
+    header,
+    main {
+      overflow: hidden;
+    }
+    main section,
+    main aside {
+      float: left;
+      width: 40%;
+    }
+    main section {
+      width: 60%;
+      padding-right: 0;
+    }
+  }
