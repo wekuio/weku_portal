@@ -89,8 +89,11 @@ class PostFull extends React.Component {
     constructor() {
         super();
 
-        const host = window.location.hostname.toLowerCase();
-        const community = getCommunity(host);
+        let community = '';
+        if(process.env.BROWSER){
+            const host = window.location.hostname.toLowerCase();
+            community = getCommunity(host);
+        }
 
         this.state = {isBookmarked: false, community};
         this.fbShare = this.fbShare.bind(this);
@@ -155,6 +158,7 @@ class PostFull extends React.Component {
     }
 
     fbShare(e) {
+        if(!process.env.BROWSER) return;
         const href = this.share_params.url;
         e.preventDefault();
         // loadFbSdk(document, 'script', 'facebook-jssdk').then(fb => {
@@ -169,6 +173,7 @@ class PostFull extends React.Component {
     }
 
     twitterShare(e) {
+        if(!process.env.BROWSER) return;
         serverApiRecordEvent('TwitterShare', this.share_params.link);
         e.preventDefault();
         const winWidth = 640;
@@ -181,6 +186,7 @@ class PostFull extends React.Component {
     }
 
     linkedInShare(e) {
+        if(!process.env.BROWSER) return;
         serverApiRecordEvent('LinkedInShare', this.share_params.link);
         e.preventDefault();
         const winWidth = 720;
