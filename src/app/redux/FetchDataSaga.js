@@ -86,7 +86,9 @@ export function* fetchData(action) {
     yield put({type: 'global/FETCHING_DATA', payload: {order, category}});
 
     const host = window.location.hostname.toLowerCase();
-    const community = getCommunity(host);
+    let community = getCommunity(host);
+    if(!community)
+        community = '';
 
     let call_name, args;
     if (order === 'trending') {
@@ -115,12 +117,6 @@ export function* fetchData(action) {
                 start_author: author,
                 start_permlink: permlink
             }];
-        // call_name = 'getDiscussionsByBlogAsync';
-        // args = [
-        //     { tag: 'alexey1019',
-        //         limit: constants.FETCH_DATA_BATCH_SIZE,
-        //         start_author: 'alexey1019',
-        //         start_permlink: 'another-test'}];
     } else if (order === 'promoted') {
         call_name = 'getDiscussionsByPromotedAsync';
         args = [
@@ -131,12 +127,6 @@ export function* fetchData(action) {
                 start_author: author,
                 start_permlink: permlink
             }];
-        // call_name = 'getDiscussionsByBlogAsync';
-        // args = [
-        //     { tag: 'alexey1019',
-        //         limit: constants.FETCH_DATA_BATCH_SIZE,
-        //         start_author: 'alexey1019',
-        //         start_permlink: 'another-test'}];
     } else if (order === 'active') {
         call_name = 'getDiscussionsByActiveAsync';
         args = [

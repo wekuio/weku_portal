@@ -16,7 +16,7 @@
         "production": "NODE_ENV=production PORT=80 node lib/server/index.js",
         "prod1": "NODE_ENV=production PORT=8081 node lib/server/index.js",
         "prod2": "NODE_ENV=production PORT=8082 node lib/server/index.js",
-        "start": "node scripts/check_translations.js; NODE_ENV=development PORT=80 ./node_modules/babel-cli/bin/babel-node.js ./webpack/dev-server.js",
+        "start": "node scripts/check_translations.js; NODE_ENV=development PORT=8080 ./node_modules/babel-cli/bin/babel-node.js ./webpack/dev-server.js",
         "starttest": "NODE_ENV=development PORT=80 ./node_modules/babel-cli/bin/babel-node.js ./webpack/dev-server.js",
         "webpush": "./node_modules/babel-cli/bin/babel-node.js ./scripts/webpush_notify.js",
         "checktranslations": "node scripts/check_translations.js"
