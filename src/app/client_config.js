@@ -66,6 +66,7 @@ export const community_host_map = {
     "game.weku.io": "community-game",
     "destroy.weku.io": "community-destroy",
     "main.weku.io": "community-deals",
+    "standby.weku.io": "community-deals",
     "live.weku.io": false
 };
 
@@ -82,8 +83,9 @@ export const community_language_map = {
     "discount.weku.io": "en",
     "cn.weku.io": "zh",
     "game.weku.io": "zh",
-    "destroy.weku.io":"en",
-    "main.weku.io":"en",
+    "destroy.weku.io": "en",
+    "main.weku.io": "en",
+    "standby.weku.io": "en",
     "live.weku.io": "en"
 };
 
