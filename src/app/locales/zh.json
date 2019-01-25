@@ -264,7 +264,7 @@
     "shorten_title": "简短标题",
     "exceeds_maximum_length": "超过最大长度 (%(maxKb)sKB)",
     "including_the_category": " (包括类别'%(rootCategory)s')",
-    "use_limited_amount_of_tags": "您有 %(tagsLength)s 标签总数%(includingCategory)s. 请在您的帖子和类别行中只使用5.",
+    "use_limited_amount_of_tags": "您有 %(tagsLength)s 标签总数%(includingCategory)s. 请在您的帖子和类别行中只使用10.",
     "are_you_sure_you_want_to_clear_this_form": "您确定要清除此表单吗？",
     "uploading": "上传",
     "draft_saved": "保存草案.",
@@ -284,7 +284,7 @@
     "markdown_not_supported": "此处不支持降级"
   },
   "category_selector_jsx": {
-    "tag_your_story": "标签（最多5个标签），第一个标签是您的主要类别.",
+    "tag_your_story": "标签（最多10个标签），第一个标签是您的主要类别.",
     "select_a_tag": "选择一个标签",
     "maximum_tag_length_is_24_characters": "最大标签长度为24个字符",
     "use_limited_amount_of_categories": "请仅使用 %(amount)s 类别",
