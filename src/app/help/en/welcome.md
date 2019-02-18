@@ -90,7 +90,7 @@ There are several guides for creating posts in the "Helpful Posts from WEKUit Us
 
 Tags will help people find your posts.
 
-Each post can have up to five tags, separated by spaces.
+Each post can have up to ten tags, separated by spaces.
 
 The first tag in the list will be the main category that the post is in.
 

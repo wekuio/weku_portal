@@ -583,7 +583,7 @@ All tags must be lowercase letters. Spaces aren't allowed, but hyphenated words 
 <a class="anchor" name="How_many_tags_can_I_use"></a>
 ## How many tags can I use?
 
-You can use up to 5 tags per post.
+You can use up to 10 tags per post.
 
 <a href="/faq.html#Table_of_Contents_Posting">^</a>
 <a class="anchor" name="Why_is_the_Post_button_grayed_out"></a>
