@@ -17,6 +17,7 @@ import tt from 'counterpart';
 import {List} from 'immutable'
 import { LIQUID_TOKEN, LIQUID_TICKER, DEBT_TOKENS, VESTING_TOKEN } from 'app/client_config';
 import transaction from 'app/redux/Transaction';
+import {getCommunity} from '../../utils/CommunityUtil';
 
 const assetPrecision = 1000;
 
@@ -58,6 +59,8 @@ class UserWallet extends React.Component {
         this.shouldComponentUpdate = shouldComponentUpdate(this, 'UserWallet');
     }
     render() {
+        const is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+
         const {onShowDepositSteem, onShowWithdrawSteem,
             onShowDepositSBD, onShowWithdrawSBD, onShowDepositPower} = this;
         const {convertToSteem, price_per_steem, savings_withdraws, account,
@@ -206,10 +209,13 @@ class UserWallet extends React.Component {
             { value: tt('userwallet_jsx.convert_to_LIQUID_TOKEN', {LIQUID_TOKEN}), link: '#', onClick: convertToSteem },
         ]
         if(isMyAccount) {
-            steem_menu.push({ value: tt('g.buy'), link: '#', onClick: onShowDepositSteem.bind(this, current_user.get('username')) });
-            steem_menu.push({ value: tt('g.sell'), link: '#', onClick: onShowWithdrawSteem });
+            if(!is_iOS){
+                steem_menu.push({ value: tt('g.buy'), link: '#', onClick: onShowDepositSteem.bind(this, current_user.get('username')) });
+                steem_menu.push({ value: tt('g.sell'), link: '#', onClick: onShowWithdrawSteem });
+                power_menu.push({ value: tt('g.buy'), link: '#', onClick: onShowDepositPower.bind(this, current_user.get('username')) })
+            }
             steem_menu.push({ value: tt('userwallet_jsx.market'), link: '/market' });
-            power_menu.push({ value: tt('g.buy'), link: '#', onClick: onShowDepositPower.bind(this, current_user.get('username')) })
+
             //dollar_menu.push({ value: tt('g.buy'), link: '#', onClick: onShowDepositSBD.bind(this, current_user.get('username')) });
             //dollar_menu.push({ value: tt('g.sell'), link: '#', onClick: onShowWithdrawSBD });
         }

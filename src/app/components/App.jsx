@@ -20,7 +20,7 @@ import {serverApiRecordEvent} from 'app/utils/ServerApiClient';
 import { APP_NAME, VESTING_TOKEN, LIQUID_TOKEN } from 'app/client_config';
 import {key_utils} from 'steem/lib/auth/ecc';
 import resolveRoute from 'app/ResolveRoute';
-
+import {getCommunity} from '../utils/CommunityUtil';
 
 const pageRequiresEntropy = (path) => {
     const {page} = resolveRoute(path);
@@ -145,6 +145,8 @@ class App extends React.Component {
     }
 
     render() {
+        const is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+
         const {location, params, children, flash, new_visitor,
             depositSteem, signup_bonus, username} = this.props;
         const lp = false; //location.pathname === '/';
@@ -298,11 +300,13 @@ class App extends React.Component {
                             About Weku Team
                         </a>
                     </li>
-                    <li>
-                        <a href="https://tokens.weku.io" target="_blank" rel="noopener noreferrer">
-                            Buy Weku
-                        </a>
-                    </li>
+                    {!is_iOS &&
+                        <li>
+                            <a href="https://tokens.weku.io" target="_blank" rel="noopener noreferrer">
+                                Buy Weku
+                            </a>
+                        </li>
+                    }
                     <li>
                         <a href="https://one.weku.io" target="_blank" rel="noopener noreferrer">
                             one.weku
