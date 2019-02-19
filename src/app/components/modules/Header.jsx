@@ -10,6 +10,7 @@ import HorizontalMenu from 'app/components/elements/HorizontalMenu';
 import normalizeProfile from 'app/utils/NormalizeProfile';
 import tt from 'counterpart';
 import { APP_NAME } from 'app/client_config';
+import {getCommunity} from '../../utils/CommunityUtil';
 
 function sortOrderToLink(so, topic, account) {
     if (so === 'home') return '/@' + account + '/feed';
@@ -68,6 +69,8 @@ class Header extends React.Component {
     }
 
     render() {
+        const is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+
         const route = resolveRoute(this.props.location.pathname);
         const current_account_name = this.props.current_account_name;
         let home_account = false;
@@ -166,18 +169,20 @@ class Header extends React.Component {
         const sort_order_menu = sort_orders.filter(so => so[0] !== sort_order).map(so => ({link: sortOrderToLink(so[0], topic, current_account_name), value: so[1]}));
         const selected_sort_order = sort_orders.find(so => so[0] === sort_order);
 
-        const sort_orders_horizontal = [
+        let sort_orders_horizontal = [
             ['created', tt('g.new')],
             ['hot', tt('main_menu.hot')],
             ['trending', tt('main_menu.trending')],
             ['promoted', tt('g.promoted')],
             //['aboutweku', tt('g.aboutweku')],
-            ['buyweku', 'Buy Weku'],
             //['social', tt('g.social')],
             //['chat', tt('g.chat')],
             //['video', tt('g.video')],
             //['about weku', tt('g.aboutweku')],
         ];
+        if(!is_iOS)
+            sort_orders_horizontal.push(['buyweku', 'Buy Weku']);
+
         if (current_account_name) sort_orders_horizontal.unshift(['home', tt('header_jsx.home')]);
         const sort_order_menu_horizontal = sort_orders_horizontal.map((so) => {
             let active = (so[0] === sort_order);
