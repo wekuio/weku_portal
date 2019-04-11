@@ -12,6 +12,9 @@ import tt from 'counterpart';
 const Long = ByteBuffer.Long
 const {string, func, object} = PropTypes
 
+
+const DISABLED_SIGNING_KEY = 'WKA1111111111111111111111111111111114T1Anm';
+
 class Witnesses extends React.Component {
     static propTypes = {
         // HTML properties
@@ -68,6 +71,8 @@ class Witnesses extends React.Component {
             const owner = item.get('owner')
             const thread = item.get('url')
             const myVote = witness_votes ? witness_votes.has(owner) : null
+            const signingKey = item.get('signing_key');
+            const isDisabled = signingKey == DISABLED_SIGNING_KEY;            
             const classUp = 'Voting__button Voting__button-up' +
                 (myVote === true ? ' Voting__button--upvoted' : '');
             let witness_thread = ""
