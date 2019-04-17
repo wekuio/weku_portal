@@ -161,7 +161,7 @@ class Witnesses extends React.Component {
             <div>
                 <div className="row">
                     <div className="column">
-                        <h2>{tt('witnesses_jsx.top_witnesses')} TEST</h2>
+                        <h2>{tt('witnesses_jsx.top_witnesses')}</h2>
                         {current_proxy && current_proxy.length ? null :
                             <p>
                             <strong>{tt('witnesses_jsx.you_have_votes_remaining', {count: witness_vote_count})}.</strong>{' '}
