@@ -15,6 +15,20 @@ const {string, func, object} = PropTypes
 
 const DISABLED_SIGNING_KEY = 'WKA1111111111111111111111111111111114T1Anm';
 
+function _blockGap(head_block, last_block) {
+    if (!last_block || last_block < 1) return 'forever';
+    const secs = (head_block - last_block) * 3;
+    if (secs < 120) return 'recently';
+    const mins = Math.floor(secs / 60);
+    if (mins < 120) return mins + ' mins ago';
+    const hrs = Math.floor(mins / 60);
+    if (hrs < 48) return hrs + ' hrs ago';
+    const days = Math.floor(hrs / 24);
+    if (days < 14) return days + ' days ago';
+    const weeks = Math.floor(days / 7);
+    if (weeks < 104) return weeks + ' weeks ago';
+}
+
 class Witnesses extends React.Component {
     static propTypes = {
         // HTML properties
@@ -60,19 +74,22 @@ class Witnesses extends React.Component {
     }
 
    render() {
-        const {props: {witness_votes, current_proxy}, state: {customUsername, proxy}, accountWitnessVote,
+        const {props: {witness_votes, head_block, current_proxy}, state: {customUsername, proxy}, accountWitnessVote,
             accountWitnessProxy, onWitnessChange} = this
         const sorted_witnesses = this.props.witnesses
             .sort((a, b) => Long.fromString(String(b.get('votes'))).subtract(Long.fromString(String(a.get('votes'))).toString()));
         const up = <Icon name="chevron-up-circle" />;
         let witness_vote_count = 30
         let rank = 1
+        
         const witnesses = sorted_witnesses.map(item => {
             const owner = item.get('owner')
             const thread = item.get('url')
             const myVote = witness_votes ? witness_votes.has(owner) : null
             const signingKey = item.get('signing_key');
-            const isDisabled = signingKey == DISABLED_SIGNING_KEY;            
+            const isDisabled = signingKey == DISABLED_SIGNING_KEY;  
+            const lastBlock = item.get('last_confirmed_block_num');
+            
             const classUp = 'Voting__button Voting__button-up' +
                 (myVote === true ? ' Voting__button--upvoted' : '');
             let witness_thread = ""
@@ -83,6 +100,11 @@ class Witnesses extends React.Component {
                     witness_thread = <Link to={thread}>{tt('witnesses_jsx.witness_thread')}</Link>
                 }
             }
+            const ownerStyle = isDisabled
+                ? { textDecoration: 'line-through', color: '#900000' }
+                : {};
+
+                
             return (
                     <tr key={owner}>
                         <td width="75">
@@ -93,7 +115,16 @@ class Witnesses extends React.Component {
                             </span>
                         </td>
                         <td>
-                            <Link to={'/@'+owner}>{owner}</Link>
+                            <Link to={'/@'+owner} style={ownerStyle}>{owner}</Link>
+                            
+                            {isDisabled && (
+                            <small>
+                                {'  '}
+                                ( {' Disabled: '}
+                                {_blockGap(head_block, lastBlock)})
+                            </small>
+                            )} 
+                            
                         </td>
                         <td>
                             {witness_thread}
@@ -130,7 +161,7 @@ class Witnesses extends React.Component {
             <div>
                 <div className="row">
                     <div className="column">
-                        <h2>{tt('witnesses_jsx.top_witnesses')}</h2>
+                        <h2>{tt('witnesses_jsx.top_witnesses')} TEST</h2>
                         {current_proxy && current_proxy.length ? null :
                             <p>
                             <strong>{tt('witnesses_jsx.you_have_votes_remaining', {count: witness_vote_count})}.</strong>{' '}
@@ -220,6 +251,7 @@ module.exports = {
             const witness_votes = current_account && current_account.get('witness_votes').toSet();
             const current_proxy = current_account && current_account.get('proxy');
             return {
+                head_block: state.global.getIn(['props', 'head_block_number']),
                 witnesses: state.global.get('witnesses'),
                 username,
                 witness_votes,
