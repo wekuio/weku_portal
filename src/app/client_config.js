@@ -58,7 +58,7 @@ export const community_host_map = {
     "cn.weku.io": "chinese",   
 };
 export const community_language_map = {
-    localhost: "community-deals",    
+    localhost: "en",    
     "main.weku.io": false,
     "sp.weku.io": "sp",    
     "en.weku.io": "en",   
