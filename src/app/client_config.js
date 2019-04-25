@@ -59,7 +59,7 @@ export const community_host_map = {
 };
 export const community_language_map = {
     localhost: "en",    
-    "main.weku.io": false,
+    "main.weku.io": "en", 
     "sp.weku.io": "sp",    
     "en.weku.io": "en",   
     "cn.weku.io": "zh"       
