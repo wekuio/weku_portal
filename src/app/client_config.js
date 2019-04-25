@@ -51,18 +51,18 @@ export const SITE_DESCRIPTION = 'WEKU is a social media platform where everyone 
 // various
 export const SUPPORT_EMAIL = 'support@' + APP_DOMAIN;
 export const community_host_map = {
-    localhost: "community-deals",    
+    localhost: false,    
     "main.weku.io": false,
     "sp.weku.io": "spanish",    
     "en.weku.io": "english",   
-    "cn.weku.io": "chinese",   
+    "cn.weku.io": "chinese"   
 };
 export const community_language_map = {
-    localhost: "community-deals",    
+    localhost: "en",    
     "main.weku.io": false,
     "sp.weku.io": "sp",    
     "en.weku.io": "en",   
-    "cn.weku.io": "zh",       
+    "cn.weku.io": "zh"       
 };    
 /*
 export const community_host_map = {
