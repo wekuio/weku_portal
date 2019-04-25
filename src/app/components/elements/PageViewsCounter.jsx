@@ -41,6 +41,7 @@ export default class PageViewsCounter extends React.Component {
     render() {
         const views = this.state.views;
         if (this.props.hidden || !views) return null;
+
         const suffix = this.props.sinceDate ? tt('g.since') + this.props.sinceDate : '';
         return <span className="PageViewsCounter" title={tt('g.views', {count: views}) + suffix}>
             <Icon name="eye" /> {views.toLocaleString()}
