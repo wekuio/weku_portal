@@ -105,15 +105,6 @@ export default class UserProfile extends React.Component {
         this.props.requestData({author, permlink, order, category, accountname});
     }
 
-    hexEncode(str){
-        let arr1 = [];
-        for (let n = 0, l = str.length; n < l; n ++)
-        {
-            let hex = Number(str.charCodeAt(n)).toString(16);
-            arr1.push(hex);
-        }
-        return arr1.join('');
-    }
 
     render() {
         let community = this.state.community;
@@ -178,7 +169,15 @@ export default class UserProfile extends React.Component {
         // const power_balance_str = numberWithCommas(vesting_steem) + " STEEM POWER";
         // const sbd_balance = parseFloat(account.sbd_balance)
         // const sbd_balance_str = numberWithCommas('$' + sbd_balance.toFixed(2));
+        /* commented and moved to wallet submenu*/
+        let referralDiv = null;
+        if(process.env.BROWSER && window)
+            referralDiv = <div className="UserWallet__balance row zebra"><div className="column small-12 medium-8">
+            <strong>{tt('user_profile.referral_information')}</strong><br/>
+            https://{`${window.location.hostname}`}/pick_account?referral={`${accountname}`}
+            </div></div>
 
+        
         let rewardsClass = "", walletClass = "";
         if( section === 'transfers' ) {
             walletClass = 'active'
@@ -188,7 +187,7 @@ export default class UserProfile extends React.Component {
                     showTransfer={this.props.showTransfer}
                     showPowerdown={this.props.showPowerdown}
                     current_user={current_user}
-                    withdrawVesting={this.props.withdrawVesting} />
+                    withdrawVesting={this.props.withdrawVesting}/>
                 {isMyAccount && <div><MarkNotificationRead fields="send,receive" account={account.name} /></div>}
                 </div>;
         }
@@ -319,14 +318,16 @@ export default class UserProfile extends React.Component {
         else if( section === 'permissions' && isMyAccount ) {
             walletClass = 'active'
             tab_content = <div>
-                <div className="row">
+
+                <div className="row">                
                     <div className="column">
                         <WalletSubMenu account_name={account.name} />
                     </div>
                 </div>
-                <br />
+                {referralDiv}                  
+                <hr />   
                 <UserKeys account={accountImm} />
-                {isMyAccount && <MarkNotificationRead fields="account_update" account={account.name} />}
+                {isMyAccount && <MarkNotificationRead fields="account_update" account={account.name} />}               
                 </div>;
         } else if( section === 'password' ) {
             walletClass = 'active'
@@ -426,11 +427,6 @@ export default class UserProfile extends React.Component {
             cover_image_style = {backgroundImage: "url(" + proxifyImageUrl(cover_image, '2048x512') + ")"}
         }
 
-        let referralDiv = null;
-        if(process.env.BROWSER && window)
-            referralDiv = <p> {tt('user_profile.referral_information')} https://{`${window.location.hostname}`}/pick_account?referral={`${accountname}`} </p>;
-
-        const accountname_in_hex = this.hexEncode(accountname);
 
         return (
             <div className="UserProfile">
@@ -453,7 +449,6 @@ export default class UserProfile extends React.Component {
                         </h1>
 
                         <div>
-                            <div>(HEX: <span> {accountname_in_hex} </span> )</div>
                             {about && <p className="UserProfile__bio">{about}</p>}
                             <div className="UserProfile__stats">
                                 <span>
@@ -467,7 +462,8 @@ export default class UserProfile extends React.Component {
                                 {location && <span><Icon name="location" /> {location}</span>}
                                 {website && <span><Icon name="link" /> <a href={website}>{website_label}</a></span>}
                                 <Icon name="calendar" /> <DateJoinWrapper date={accountjoin} />
-                                {referralDiv}
+                              <br/>
+                              <br/>
                             </div>
                         </div>
                         <div className="UserProfile__buttons_mobile show-for-small-only">

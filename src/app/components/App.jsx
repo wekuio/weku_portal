@@ -352,7 +352,7 @@ class App extends React.Component {
             </div>
             <Dialogs />
             <Modals />
-            <PageViewsCounter />
+            <PageViewsCounter hidden={true} />
         </div>
     }
 }

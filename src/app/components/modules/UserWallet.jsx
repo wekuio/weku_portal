@@ -22,6 +22,15 @@ import {getCommunity} from '../../utils/CommunityUtil';
 const assetPrecision = 1000;
 
 class UserWallet extends React.Component {
+    hexEncode(str){
+        let arr1 = [];
+        for (let n = 0, l = str.length; n < l; n ++)
+        {
+            let hex = Number(str.charCodeAt(n)).toString(16);
+            arr1.push(hex);
+        }
+        return arr1.join('');
+    }
     constructor() {
         super();
         this.state = {};
@@ -223,6 +232,8 @@ class UserWallet extends React.Component {
             power_menu.push( { value: 'Cancel Power Down', link:'#', onClick: powerDown.bind(this, true) } );
         }
 
+        
+        
         const isWithdrawScheduled = new Date(account.get('next_vesting_withdrawal') + 'Z').getTime() > Date.now()
 
         const steem_balance_str = numberWithCommas(balance_steem.toFixed(3));
@@ -277,7 +288,9 @@ class UserWallet extends React.Component {
                     </div>
                 </div>
         }
-
+        const name = account.get('name');        
+        //const current_user_name = this.props.current_user.get('username');
+        const accountname_in_hex = this.hexEncode(name);
         return (<div className="UserWallet">
             {claimbox}
             <div className="row">
@@ -288,7 +301,13 @@ class UserWallet extends React.Component {
                     {isMyAccount && <button className="UserWallet__buysp button hollow" onClick={onShowDepositSteem}>{tt('userwallet_jsx.buy_steem_or_steem_power')}</button>}
                 </div>*/}
             </div>
+            <div className="UserWallet__balance row zebra">   
+                <div className="column small-12 medium-8">            
+                 Name HEX hash: <span> {accountname_in_hex} </span>     
+                </div>                 
+            </div>            
             <div className="UserWallet__balance row">
+
                 <div className="column small-12 medium-8">
                     WEKU
                     <FormattedHTMLMessage className="secondary" id="tips_js.liquid_token" params={{LIQUID_TOKEN, VESTING_TOKEN}} />

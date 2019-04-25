@@ -189,7 +189,7 @@ class PostsList extends React.Component {
             let is_in_community = true;
             if(community && cont.toJS().json_metadata.indexOf(community) < 0)
                 is_in_community = false;
-
+                // Uncomment above to resume community
             if((!(ignore || hide) || showSpam) && is_in_community) // rephide
                 postsInfo.push({item, ignore})
         });
