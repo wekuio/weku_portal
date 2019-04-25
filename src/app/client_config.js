@@ -50,45 +50,59 @@ export const SITE_DESCRIPTION = 'WEKU is a social media platform where everyone 
 
 // various
 export const SUPPORT_EMAIL = 'support@' + APP_DOMAIN;
-
+export const community_host_map = {
+    localhost: "community-deals",    
+    "main.weku.io": false,
+    "sp.weku.io": "spanish",    
+    "en.weku.io": "english",   
+    "cn.weku.io": "chinese",   
+};
+export const community_language_map = {
+    localhost: "community-deals",    
+    "main.weku.io": false,
+    "sp.weku.io": "sp",    
+    "en.weku.io": "en",   
+    "cn.weku.io": "zh",       
+};    
+/*
 export const community_host_map = {
     localhost: "community-deals",
+    "main.weku.io": "community-deals",
+    "deals.weku.io": "community-deals",    
     "web2.weku.io": "community-deals",
-    "news.weku.io": "community-news",
     "one.weku.io": "community-one",
-    "deals.weku.io": "community-deals",
-    "house.weku.io": "community-house",
     "code.weku.io": "community-code",
     "stock.weku.io": "community-stock",
     "test.weku.io": "community-test",
-    "discount.weku.io": "community-discount",
+    "discount.weku.io": "community-discount",   
+    "destroy.weku.io": "community-destroy",   
+    "standby.weku.io": "community-deals",
     "cn.weku.io": "community-cn",
     "game.weku.io": "community-game",
-    "destroy.weku.io": "community-destroy",
-    "main.weku.io": "community-deals",
-    "standby.weku.io": "community-deals",
-    "live.weku.io": false
+    "house.weku.io": "community-house",
+    "news.weku.io": "community-news",    
+    "live.weku.io": false    
 };
 
 export const community_language_map = {
     localhost: "en",
+    "main.weku.io": "en",    
+    "deals.weku.io": "en",  
     "web2.weku.io": "en",
-    "news.weku.io": "zh",
     "one.weku.io": "en",
-    "deals.weku.io": "en",
-    "house.weku.io": "zh",
     "code.weku.io": "en",
     "stock.weku.io": "en",
     "test.weku.io": "en",
     "discount.weku.io": "en",
+    "destroy.weku.io": "en",
+    "standby.weku.io": "en",
     "cn.weku.io": "zh",
     "game.weku.io": "zh",
-    "destroy.weku.io": "en",
-    "main.weku.io": "en",
-    "standby.weku.io": "en",
-    "live.weku.io": "en"
+    "news.weku.io": "zh",  
+    "house.weku.io": "zh",   
+    "live.weku.io": "en" 
 };
-
+*/
 // We need to set reacaptchaOption before recaptcha-wrapper loaded
 // Set useRecaptchaNet true to avoid calling google.com which has been blocked in China
 export const recaptchaOptions = {
