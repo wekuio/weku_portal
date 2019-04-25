@@ -402,7 +402,7 @@ class PostFull extends React.Component {
                   </Link>
                 </span>
                 <span className="PostFull__views">
-                  <PageViewsCounter hidden={false} sinceDate={isPreViewCount ? 'Dec 2016' : null} />
+                  <PageViewsCounter hidden={true} sinceDate={isPreViewCount ? 'Dec 2016' : null} />
                 </span>
                 <ShareMenu menu={share_menu} />
                 <button className="explore-post" title={tt('g.share_this_post')} onClick={this.showExplorePost}>
