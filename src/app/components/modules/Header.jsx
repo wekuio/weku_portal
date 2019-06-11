@@ -180,8 +180,8 @@ class Header extends React.Component {
             //['video', tt('g.video')],
             //['about weku', tt('g.aboutweku')],
         ];
-        if(!is_iOS)
-            sort_orders_horizontal.push(['buyweku', 'Buy Weku']);
+        //if(!is_iOS)
+            //sort_orders_horizontal.push(['buyweku', 'Buy Weku']);
 
         if (current_account_name) sort_orders_horizontal.unshift(['home', tt('header_jsx.home')]);
         const sort_order_menu_horizontal = sort_orders_horizontal.map((so) => {
