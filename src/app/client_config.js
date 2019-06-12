@@ -50,6 +50,8 @@ export const SITE_DESCRIPTION = 'WEKU is a social media platform where everyone 
 
 // various
 export const SUPPORT_EMAIL = 'support@' + APP_DOMAIN;
+
+/*
 export const community_host_map = {
     localhost: false,    
     "main.weku.io": false,
@@ -64,7 +66,8 @@ export const community_language_map = {
     "en.weku.io": "en",   
     "cn.weku.io": "zh"       
 };    
-/*
+*/
+
 export const community_host_map = {
     localhost: "community-deals",
     "main.weku.io": "community-deals",
@@ -102,7 +105,7 @@ export const community_language_map = {
     "house.weku.io": "zh",   
     "live.weku.io": "en" 
 };
-*/
+
 // We need to set reacaptchaOption before recaptcha-wrapper loaded
 // Set useRecaptchaNet true to avoid calling google.com which has been blocked in China
 export const recaptchaOptions = {
