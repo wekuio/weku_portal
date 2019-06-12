@@ -39,19 +39,19 @@ class UserWallet extends React.Component {
             const name = this.props.current_user.get('username');
             const new_window = window.open();
             new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=weku&receive_address=' + name;
+            new_window.location = 'https://tokens.weku.io';
         };
         this.onShowWithdrawSteem = (e) => {
             e.preventDefault();
             const new_window = window.open();
             new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/unregistered_trade/weku/btc';
+            new_window.location = 'https://main.weku.io/community-deals/@weku-official/announcement-2019-05-24-the-market-gateway-beta-production-test';
         };
         this.onShowDepositPower = (current_user_name, e) => {
             e.preventDefault();
             const new_window = window.open();
             new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=weku_power&receive_address=' + current_user_name;
+            new_window.location = 'https://tokens.weku.io';
         };
         this.onShowDepositSBD = (current_user_name, e) => {
             e.preventDefault();
