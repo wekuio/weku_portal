@@ -123,8 +123,8 @@ class App extends React.Component {
 
     navigate = (e) => {
         const a = e.target.nodeName.toLowerCase() === 'a' ? e.target : e.target.parentNode;
-        // this.setState({open: null});
-        if (a.host !== window.location.host) return;
+        // this.setState({open: null});       
+        if (window && a.host !== window.location.host) return;
         e.preventDefault();
         browserHistory.push(a.pathname + a.search + a.hash);
     };
@@ -385,10 +385,14 @@ export default connect(
         loginUser: () =>
             dispatch(user.actions.usernamePasswordLogin()),
         depositSteem: (username) => {
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=weku&receive_address=' + username;
-            //dispatch(g.actions.showDialog({name: 'blocktrades_deposit', params: {outputCoinType: 'VESTS'}}));
+
+            if(window){
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=weku&receive_address=' + username;
+                //dispatch(g.actions.showDialog({name: 'blocktrades_deposit', params: {outputCoinType: 'VESTS'}}));
+       
+            }  
         },
     })
 )(App);
