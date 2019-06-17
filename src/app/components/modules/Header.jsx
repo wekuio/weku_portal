@@ -69,7 +69,7 @@ class Header extends React.Component {
     }
 
     render() {
-        lef is_iOS = false;
+        let is_iOS = false;
         if(window) is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
 
         const route = resolveRoute(this.props.location.pathname);
