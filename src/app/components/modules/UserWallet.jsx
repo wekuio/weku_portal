@@ -68,7 +68,8 @@ class UserWallet extends React.Component {
         this.shouldComponentUpdate = shouldComponentUpdate(this, 'UserWallet');
     }
     render() {
-        const is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+        let is_iOS = false;
+        if(window) is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
 
         const {onShowDepositSteem, onShowWithdrawSteem,
             onShowDepositSBD, onShowWithdrawSBD, onShowDepositPower} = this;
