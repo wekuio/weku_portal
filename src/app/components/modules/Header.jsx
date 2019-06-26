@@ -70,7 +70,7 @@ class Header extends React.Component {
 
     render() {
         let is_iOS = false;
-        if(window) is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+        if(typeof window !== 'undefined') is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
 
         const route = resolveRoute(this.props.location.pathname);
         const current_account_name = this.props.current_account_name;
