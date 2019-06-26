@@ -146,7 +146,7 @@ class App extends React.Component {
 
     render() {
         let is_iOS = false;
-        if(window) is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
+        if(typeof window !== 'undefined') is_iOS = (window.location.hostname.toLowerCase() == 'ios.weku.io');
 
         const {location, params, children, flash, new_visitor,
             depositSteem, signup_bonus, username} = this.props;
