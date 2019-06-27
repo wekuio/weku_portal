@@ -3,8 +3,8 @@ var https = require('https');
 var fs = require('fs');
 var path = require('path')
 
-const msg = '<br><br> <center> <img src="https://weku.io/images/revision/logo.png" width="10%"  > <H3><center>We are preparing the platform for the market launch, we are performing some serious security and stability upgrades.<br> Please be patient WEKU is working for you.<br>'
-    + ''
+const msg = '<br><br> <center> <img src="https://weku.io/images/revision/logo.png" width="10%"  > <H3><center>Sorry for the inconvenience,<br> but we are performing maintenance at this moment. <br>'     
+    + 'We will be back online soon.'
     + '<br>-- Weku Team';
 http.createServer(function (req, res) {
     const time = new Date();
