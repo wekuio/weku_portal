@@ -36,7 +36,8 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('scroll', this.hideSubheader, {capture: false, passive: true});
+        if(window)
+            window.addEventListener('scroll', this.hideSubheader, {capture: false, passive: true});
     }
 
     componentWillReceiveProps(nextProps) {
@@ -44,18 +45,20 @@ class Header extends React.Component {
             const route = resolveRoute(nextProps.location.pathname);
             if (route && route.page === 'PostsIndex' && route.params && route.params.length > 0) {
                 const sort_order = route.params[0] !== 'home' ? route.params[0] : null;
-                if (sort_order) window.last_sort_order = this.last_sort_order = sort_order;
+                if (sort_order && window) window.last_sort_order = this.last_sort_order = sort_order;
             }
         }
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.hideSubheader);
+        if(window)
+            window.removeEventListener('scroll', this.hideSubheader);
     }
 
     hideSubheader() {
         const subheader_hidden = this.state.subheader_hidden;
-        const y = window.scrollY >= 0 ? window.scrollY : document.documentElement.scrollTop;
+        let y = 0;
+        if(window) y = window.scrollY >= 0 ? window.scrollY : document.documentElement.scrollTop;
         if (y === this.prevScrollY) return;
 
         if (y < 5) {
