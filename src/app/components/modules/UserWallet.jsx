@@ -34,37 +34,39 @@ class UserWallet extends React.Component {
     constructor() {
         super();
         this.state = {};
-        this.onShowDepositSteem = (e) => {
-            if (e && e.preventDefault) e.preventDefault();
-            const name = this.props.current_user.get('username');
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://tokens.weku.io';
-        };
-        this.onShowWithdrawSteem = (e) => {
-            e.preventDefault();
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://main.weku.io/community-deals/@weku-official/announcement-2019-05-24-the-market-gateway-beta-production-test';
-        };
-        this.onShowDepositPower = (current_user_name, e) => {
-            e.preventDefault();
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://tokens.weku.io';
-        };
-        this.onShowDepositSBD = (current_user_name, e) => {
-            e.preventDefault();
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=wkd&receive_address=' + current_user_name;
-        };
-        this.onShowWithdrawSBD = (e) => {
-            e.preventDefault();
-            const new_window = window.open();
-            new_window.opener = null;
-            new_window.location = 'https://trade.weku.io/unregistered_trade/wkd/btc';
-        };
+        if(window){
+            this.onShowDepositSteem = (e) => {
+                if (e && e.preventDefault) e.preventDefault();
+                const name = this.props.current_user.get('username');
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://tokens.weku.io';
+            };
+            this.onShowWithdrawSteem = (e) => {
+                e.preventDefault();
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://main.weku.io/community-deals/@weku-official/announcement-2019-05-24-the-market-gateway-beta-production-test';
+            };
+            this.onShowDepositPower = (current_user_name, e) => {
+                e.preventDefault();
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://tokens.weku.io';
+            };
+            this.onShowDepositSBD = (current_user_name, e) => {
+                e.preventDefault();
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://trade.weku.io/?input_coin_type=btc&output_coin_type=wkd&receive_address=' + current_user_name;
+            };
+            this.onShowWithdrawSBD = (e) => {
+                e.preventDefault();
+                const new_window = window.open();
+                new_window.opener = null;
+                new_window.location = 'https://trade.weku.io/unregistered_trade/wkd/btc';
+            };
+        }
         this.shouldComponentUpdate = shouldComponentUpdate(this, 'UserWallet');
     }
     render() {
