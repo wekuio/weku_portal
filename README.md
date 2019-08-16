@@ -1,12 +1,6 @@
 
 Weku Website
 
-## software versions
-node: 8.11.1
-yarn: 1.6.0
-npm: 5.6.0
-mysql: 5.7.16
-
 ## Installation
 
 #### Clone the repository and make a tmp folder
@@ -16,31 +10,16 @@ cd weku_portal
 yarn install
 ```
 
-To run website in production mode, run:
-
-need sudo to open port 80
-
-```bash
-sudo npm run production
-```
-
-To run condenser in development mode, run:
-
-```bash
-sudo npm run start
-```
-
-#### Configuration
-configuration files are in config folder
-
-#### Install mysql server
-
-Once set up, you can set the mysql server configuration option, editing config in `config/production.json`. You will use the format `mysql://user:pass@hostname/databasename`.
+#### Install following software with recommended versions
+node: 8.11.1
+yarn: 1.6.0
+npm: 5.6.0
+mysql: 5.7.16
 
 #### Database migrations
 
 This is a required step in order for the database to be 'ready' for website's use.
-
+Create a new empty database in mysql.
 
 Edit the file `src/db/config/config.json` using your favorite command line text editor being sure that the username, password, host, and database name are set correctly and match your newly configured mysql setup.
 
@@ -51,10 +30,23 @@ cd src/db
 yarn exec sequelize db:migrate
 ```
 
+#### Configuration
+
+update values in config/default.json file
+
+#### Run
+
+To run condenser in development mode, run:
+
+```bash
+npm run build
+sudo npm run start
+```
+
 ## Issues
 
 To report a non-critical issue, please file an issue on this GitHub project.
 
-If you find a security issue please report details to: security@weku.io
+If you find a security issue please report details to: admin@weku.io
 
 We will evaluate the risk and make a patch available before filing the issue.
