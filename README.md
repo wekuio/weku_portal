@@ -1,5 +1,11 @@
 
-WeKu Website
+Weku Website
+
+## software versions
+node: 8.11.1
+yarn: 1.6.0
+npm: 5.6.0
+mysql: 5.7.16
 
 ## Installation
 
@@ -28,8 +34,6 @@ sudo npm run start
 configuration files are in config folder
 
 #### Install mysql server
-
-Recommended version 5.7.16
 
 Once set up, you can set the mysql server configuration option, editing config in `config/production.json`. You will use the format `mysql://user:pass@hostname/databasename`.
 
