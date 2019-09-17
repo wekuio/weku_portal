@@ -231,6 +231,16 @@ class Header extends React.Component {
                         <HorizontalMenu items={sort_order_menu_horizontal} />
                     </div>
                 </div>
+                <div dangerouslySetInnerHTML={{__html: `
+                   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                   <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({
+                     google_ad_client: "ca-pub-1248047691012231",
+                     enable_page_level_ads: true
+                    });                    
+                   </script>
+
+                  `}} />
             </header>
         );
     }
