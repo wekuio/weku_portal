@@ -9,7 +9,7 @@
 - <a href="/faq.html#How_does_WEKUit_work">How does WEKU work?</a>
 - <a href="/faq.html#How_does_WEKUit_differ_from_other_social_media_websites">How does WEKU differ from other social media websites?</a>
 - <a href="/faq.html#Does_it_cost_anything_to_post__comment__or_vote">Does it cost anything to post, comment, or vote?</a>
-- <a href="/faq.html#Can_I_earn_digital_tokens_on_WEKUit_How">Can I earn digital tokens on WEKU? How?</a>
+- <a href="/faq.html#Can_I_earn_digital_tokens_on_WEKUit_How">Can I earn digital tokens on WEKU?</a>
   <a href="/faq.html#Can_I_buy_or_sell_WEKU_tokens">Can I buy or sell WEKU tokens?</a>
 - <a href="/faq.html#Where_do_the_tokens_come_from">Where do the tokens come from?</a>
 - <a href="/faq.html#Where_does_the_value_come_from">Where does the value come from?</a>
@@ -320,13 +320,13 @@ The only way to have an account created via WEKU.io is to supply your email and 
 <a class="anchor" name="What_are_other_ways_to_create_an_account_on_the_blockchain_besides_using_WEKUit_com"></a>
 ## What are other ways to create an account on the blockchain besides using WEKU.io?
 
-TBD
+WEKU witnesses can create accounts for users, however you will have to pay for the account creation service. 
 
 <a href="/faq.html#Table_of_Contents_Accounts">^</a>
 <a class="anchor" name="It_is_not_letting_me_create_an_account_with_my_phone_number__What_should_I_do"></a>
 ## It is not letting me create an account with my phone number. What should I do?
 
-Ask for help in the <a href="https://WEKUit.chat/channel/help">#help</a> channel on <a href="https://WEKUit.chat/home">WEKUit.chat</a>.
+Ask for help in the WEKU Support Channel on the Discord : https://discord.gg/FQmbttW or email : support@weku.io. 
 
 <a href="/faq.html#Table_of_Contents_Accounts">^</a>
 <a class="anchor" name="What_happens_if_my_email_or_phone_number_changes"></a>
@@ -568,8 +568,6 @@ The recommend aspect ratio for thumbnail images is 16x9.
 ## How do I add videos to my posts?
 
 To add a YouTube or Vimeo video to your blog post, simply paste the link to the video into the post.
-
-You can also read <a href="https://WEKUit.io/WEKUitguide/@algimantas/detailed-guide-how-to-add-videos-in-WEKUit">this guide</a> from @algimantas, which has more detailed instructions:
 
 <a href="/faq.html#Table_of_Contents_Posting">^</a>
 <a class="anchor" name="Is_there_a_way_I_can_make_my_images_smaller"></a>
