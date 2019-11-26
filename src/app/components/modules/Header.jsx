@@ -231,6 +231,10 @@ class Header extends React.Component {
                         <HorizontalMenu items={sort_order_menu_horizontal} />
                     </div>
                 </div>
+                <div dangerouslySetInnerHTML={{__html: `
+                   <script>                   
+                   </script>
+                  `}} />
             </header>
         );
     }
