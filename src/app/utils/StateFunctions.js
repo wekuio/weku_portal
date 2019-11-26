@@ -141,7 +141,15 @@ export function contentStats(content) {
         tags = []
     }
     tags.push(content.get('category'))
-    const isNsfw = tags.filter(tag => tag && tag.match(/^nsfw$/i)).length > 0;
+
+    let isNsfw = false;    
+    try
+    {
+        isNsfw = tags.filter(tag => tag && tag.match(/^nsfw$/i)).length > 0;
+    }catch(err){
+        console.log('>>> error: ' + JSON.stringify(err));
+    }
+    
 
     return {hide, gray, authorRepLog10, allowDelete, isNsfw, flagWeight, total_votes, up_votes, hasPendingPayout}
 }
