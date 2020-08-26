@@ -144,7 +144,7 @@
         "tarantool-driver": "^2.0.1",
         "twilio": "^2.11.1",
         "uncontrollable": "^3.2.1",
-        "underscore.string": "^3.2.3",
+        "underscore.string": "^3.3.5",
         "url-loader": "^0.5.7",
         "web-push": "^3.2.1",
         "webpack": "^1.13.2",
